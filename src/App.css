@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+body {
+font-family: 'Manrope', sans-serif;
+background-color: #f8fafc;  /* Secondary háttér */
+}
+.navbar-dark .nav-link {
+color: #ffffff !important;
+}
+.navbar-dark .nav-link:hover {
+color: #0284c7 !important;
+}
+.service-row-even {
+background-color: #e2e8f0;  /* Világos kékesszürke alternáló háttér */
+padding: 2rem 0;
+}
+.service-img {
+transition: transform 0.3s ease;
+}
+.service-img:hover {
+transform: scale(1.05);
+}
+.footer {
+background-color: #0f172a;
+}
