@@ -16,7 +16,22 @@ import image5 from './image5.jpg';
 import image6 from './image6.jpg';
 import image7 from './image7.jpg';
 import image8 from './image8.jpg';
-
+import image9 from './image9.jpg';  
+import image10 from './image10.jpg';
+import image11 from './image11.jpg';
+import image12 from './image12.jpg';
+import image13 from './image13.jpg';
+import image14 from './image14.jpg';
+import image15 from './image15.jpg';
+import image16 from './image16.jpg';
+import image17 from './image17.jpg';  
+import image18 from './image18.jpg';
+import image19 from './image19.jpg';
+import image20 from './image20.jpg';
+import image21 from './image21.jpg';
+import image22 from './image22.jpg';
+import image23 from './image23.jpg';
+import image24 from './image24.jpg';
 
 function App() {
 
@@ -73,7 +88,7 @@ function App() {
         }}
       >
         <div className="text-center">
-          <h1>Vigo Bausystem – Padlástér Specialisták</h1>
+          <h1>Vigo Bausystem – Padlástér Specialista</h1>
           <p>Professzionális gipszkarton szerelés tetőterekbe, minőségi anyagokkal és precíz munkával.</p>
           <button variant="primary" href="#kapcsolat" size="lg" class="rounded-pill shadow" backgroundColor="&#x27;#0284c7&#x27" >
             Kapcsolatfelvétel
@@ -81,6 +96,7 @@ function App() {
         </div>
       </div>
 
+        {/* Szolgáltatások section */}
       
         <section id="szolgaltatasok" className="py-5 bg-light">
         <Container fluid>  {/* Fluid a full-width-hez */}
@@ -92,16 +108,16 @@ function App() {
               <img src={image1} alt="Padlástér szerelés" className="img-fluid rounded" />
             </Col>
             <Col md={6} data-aos="fade-left">
-              <h3>Padlástér Gipszkarton Szerelés</h3>
-              <p>Professzionális gipszkarton szerelést vállalok padlásterekben, beleértve álmennyezetek, válaszfalak és burkolatok kialakítását. A munkám során hangsúlyt fektetek a precíz illesztésre, hogy a tér maximálisan kihasználható legyen, akár lakószobaként, akár tárolóként.</p>
+              <h3>Tetőtéri tűzvédelem</h3>
+              <p>A padlástéri lakótér kialakításában fontos előkészületi tényező a minimum 20 perces tűzvédelem, amit az egybefüggő szerkezetre felcsavarozott gipszkarton és annak glettelése tesz lehetővé.</p>
             </Col>
           </Row>
 
           {/* Második: Fordított sorrend a változatosságért (szöveg bal, kép jobb) */}
           <Row className="align-items-center mb-5" data-aos="fade-in" data-aos-delay="200">
             <Col md={6} data-aos="fade-right">
-              <h3>Megfelelő Szigetelés</h3>
-              <p>A padlástér szigetelése kulcsfontosságú a hőveszteség minimalizálásához. Használok minőségi szigetelőanyagokat, mint a kőzetgyapot vagy üveggyapot, amelyek nem csak a téli meleget tartják bent, de nyáron is hűvöset biztosítanak. Figyelembe veszem a tetőszerkezet típusát, hogy elkerüljük a hőhidakat.</p>
+              <h3>Szigetelési tényezők</h3>
+              <p>A szigetelés vastagsága jelentős befolyással van a lakótér kellemes érzetére. Ezen kívül az egybefüggő, precíz szigetelésnek köszönhetően a hőhidak nem jelennek meg.</p>
             </Col>
             <Col md={6} data-aos="fade-left">
               <img src={image2} alt="Szigetelés" className="img-fluid rounded" />
@@ -114,12 +130,11 @@ function App() {
               <img src={image3} alt="Tűzvédelem" className="img-fluid rounded" />
             </Col>
             <Col md={6} data-aos="fade-left">
-              <h3>Tűzvédelem</h3>
-              <p>Tűzálló gipszkarton lapokat használok, amelyek megfelelnek az építési előírásoknak, különösen lakótereknél. Ez növeli a biztonságot, mivel lassítja a tűz terjedését, és extra védelmet nyújt a tetőszerkezetnek. Mindig figyelembe veszem a helyi tűzvédelmi szabályokat a telepítés során.</p>
+              <h3>Párazárási technológia</h3>
+              <p>Az egybefüggő párazárás könnyen kialakítható a szerkezet összefüggősége miatt, ami a külső és belső hőmérséklet-különbség miatti lecsapódásból származik. Ezen pára megjelenése a szigetelés bármely területén képződhet – ezt persze mi nem látjuk –, ezért fontos a 3-5 centiméteres légrés, hogy kiszáradjon, és így ne károsodjon a tetőszerkezet.</p>
             </Col>
           </Row>
 
-        {/* Szolgáltatások section */}
         {/* Galéria */}
 
         <h2 id="galeria" className="text-center mb-5" style={{ color: '#1e293b' }}>Galéria</h2>
@@ -147,6 +162,54 @@ function App() {
   </Col>
   <Col md={4} data-aos="fade-up" data-aos-delay="200">
     <img src={image8} alt="Projekt 8" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image9} alt="Projekt 9" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image10} alt="Projekt 10" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image11} alt="Projekt 11" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image12} alt="Projekt 12" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image13} alt="Projekt 13" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image14} alt="Projekt 14" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image15} alt="Projekt 15" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image21} alt="Projekt 21" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image16} alt="Projekt 16" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image17} alt="Projekt 17" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image18} alt="Projekt 18" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image19} alt="Projekt 19" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image20} alt="Projekt 20" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image22} alt="Projekt 22" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image23} alt="Projekt 23" className="img-fluid rounded service-img mb-3" />
+  </Col>
+  <Col md={4} data-aos="fade-up" data-aos-delay="200">
+    <img src={image24} alt="Projekt 24" className="img-fluid rounded service-img mb-3" />
   </Col>
 </Row>
 
