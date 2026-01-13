@@ -3,8 +3,9 @@ import { Container, Navbar, Nav, Button, Row, Col, Card } from 'react-bootstrap'
 import { Form } from 'react-bootstrap';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './VigoLogo.jpg';
+import logo from './Logo.jpg';
 import axios from 'axios';
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import heroImage from './hero.jpg';
@@ -46,20 +47,43 @@ function App() {
     });
   }, []);
 
-  const handleSubmit = async (e) => { e.preventDefault(); try { await axios.post('https://formspree.io/f/TE_EMAIL_ENDPOINT', formData); alert('Üzenet elküldve!'); } catch { alert('Hiba!'); } };
+  const validateEmail = (email) => {
+const re = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+return re.test(String(email).toLowerCase());
+};
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      alert('Kérjük, töltse ki az összes mezőt!');
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      alert('Kérjük, adjon meg egy érvényes email címet!');
+      return;
+    }
+
+    try {
+      await axios.post('https://formspree.io/f/mykzrayl', formData);
+        alert('Üzenet elküldve!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch {
+      alert('Hiba!');
+    }
+  };
   
   return (
+    <ParallaxProvider>
     <>
       <Navbar sticky="top" bg="dark" variant="dark" expand="lg" style={{ backgroundColor: '#0f172a' }}>
         <Container>
-          <Navbar.Brand href="#home">
-            <img
-              src={logo}
-              alt="Vigo Bausystem Logo"
-              width="150"
-              height="150"
-              className="d-inline-block align-top"
-            />
+          <Navbar.Brand href="#home" className="logo-container">
+            <div className="logo-container" style={{ position: 'relative', width: '150px', height: '150px' }}>
+  <img src={logo} className="logo-front" alt="Front" style={{ width: '100%', height: '100%' }} />
+  <img src={logo} className="logo-back" alt="Back" style={{ width: '100%', height: '100%', transform: 'rotateY(180deg)' }} /> 
+</div>
           </Navbar.Brand>
           <Nav className="ms-auto">
             <Nav.Link href="#home">Home</Nav.Link>
@@ -71,6 +95,7 @@ function App() {
       </Navbar>
 
       {/* Hero Section */}
+      <Parallax translateY={[-20, 20]}>
         <div 
         id="home"
         className="hero-section" 
@@ -90,11 +115,9 @@ function App() {
         <div className="text-center">
           <h1>Vigo Bausystem – Padlástér Specialista</h1>
           <p>Professzionális gipszkarton szerelés tetőterekbe, minőségi anyagokkal és precíz munkával.</p>
-          <button variant="primary" href="#kapcsolat" size="lg" class="rounded-pill shadow" backgroundColor="&#x27;#0284c7&#x27" >
-            Kapcsolatfelvétel
-          </button>
         </div>
       </div>
+      </Parallax>
 
         {/* Szolgáltatások section */}
       
@@ -105,7 +128,7 @@ function App() {
           {/* Első szolgáltatás: Full-width row, kép bal, szöveg jobb */}
           <Row className="align-items-center mb-5" data-aos="fade-in">
             <Col md={6} data-aos="fade-right">
-              <img src={image1} alt="Padlástér szerelés" className="img-fluid rounded" />
+              <img src={image1} alt="Padlástér szerelés" className="img-fluid rounded" data-title="Tetőteri Tűzvédelem" />
             </Col>
             <Col md={6} data-aos="fade-left">
               <h3>Tetőtéri tűzvédelem</h3>
@@ -140,7 +163,7 @@ function App() {
         <h2 id="galeria" className="text-center mb-5" style={{ color: '#1e293b' }}>Galéria</h2>
 <Row>
   <Col md={4} data-aos="fade-up">
-    <img src={image1} alt="Projekt 1" className="img-fluid rounded service-img mb-3" />
+    <img src={image1} alt="Projekt 1" className="img-fluid rounded service-img mb-3" data-title="Tetőteri Tűzvédelem" />
   </Col>
   <Col md={4} data-aos="fade-up" data-aos-delay="200">
     <img src={image2} alt="Projekt 2" className="img-fluid rounded service-img mb-3" />
@@ -218,20 +241,22 @@ function App() {
   <Row>
     <Col md={6}>
       <p style={{ color: '#1e293b' }}>Elérhetőségek: Email: vigobausystem@gmail.com | Telefon: +36 70 881 8473</p>
+      <p>Árajánlat kéréshez kérem vegye fel a kapcsolatot telefonon vagy emailben.</p>
+      <p>Telefonon Hétfőtől-Péntekig 8:00-18:00 között</p>
     </Col>
     <Col md={6}>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Név</Form.Label>
-          <Form.Control type="text" placeholder="Írja be a nevét" />
+          <Form.Control type="text" placeholder="Írja be a nevét" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} required/>
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="Írja be az emailjét" />
+          <Form.Control type="email" placeholder="Írja be az emailjét" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} required/>
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Üzenet</Form.Label>
-          <Form.Control as="textarea" rows={3} />
+          <Form.Control as="textarea" rows={3} value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} required/>
         </Form.Group>
         <Button variant="primary" type="submit" style={{ backgroundColor: '#0284c7' }}>Küldés</Button>
       </Form>
@@ -246,6 +271,7 @@ function App() {
         <p>&copy; 2026 Vigo Bausystem. Minden jog fenntartva.</p>
       </footer>
     </>
+    </ParallaxProvider>
   );
 }
 
